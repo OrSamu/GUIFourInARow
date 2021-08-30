@@ -1,0 +1,6 @@
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.Logic\obj\Debug\Ex05.FourInARow.Logic.csprojAssemblyReference.cache
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.Logic\obj\Debug\Ex05.FourInARow.Logic.csproj.CoreCompileInputs.cache
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.Logic\bin\Debug\Ex05.FourInARow.Logic.dll
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.Logic\bin\Debug\Ex05.FourInARow.Logic.pdb
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.Logic\obj\Debug\Ex05.FourInARow.Logic.dll
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.Logic\obj\Debug\Ex05.FourInARow.Logic.pdb

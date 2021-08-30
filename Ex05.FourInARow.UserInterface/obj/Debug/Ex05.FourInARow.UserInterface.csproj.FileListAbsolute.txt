@@ -1,0 +1,12 @@
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.UserInterface\bin\Debug\Ex05.FourInARow.UserInterface.exe
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.UserInterface\bin\Debug\Ex05.FourInARow.UserInterface.pdb
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.csprojAssemblyReference.cache
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.csproj.CoreCompileInputs.cache
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.exe
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.pdb
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.csproj.GenerateResource.cache
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.UserInterface\bin\Debug\Ex05.FourInARow.Logic.dll
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.UserInterface\bin\Debug\Ex05.FourInARow.Logic.pdb
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.csproj.CopyComplete
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.FormGameSettings.resources
+C:\Users\3520708\Programming\C#\C21 Ex05 OrSamucian 315872424 DarEini 313467482\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.FormInputError.resources

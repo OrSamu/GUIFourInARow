@@ -6,9 +6,8 @@ namespace Ex05.FourInARow.UserInterface
     {
         public static void Main()
         {
-            FormSettings test = new FormSettings();
-
-            test.ShowDialog();
+            UIManager fourInARowUIManager = new UIManager();
+            fourInARowUIManager.StartGame();
         }
     }
 }
