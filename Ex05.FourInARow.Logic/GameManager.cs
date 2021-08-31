@@ -1,4 +1,6 @@
-﻿namespace Ex05.FourInARow.Logic
+﻿using System.Drawing;
+
+namespace Ex05.FourInARow.Logic
 {
     public class GameManager
     {
@@ -84,10 +86,14 @@
             return points;
         }
 
-        public void AddShapeToBoard(Player i_PlayigPlayer, int i_ChosenColumn)
+        public Point AddShapeToBoard(Player i_PlayigPlayer, int i_ChosenColumn)
         {
-            m_Board.InsertSignToBoard(i_PlayigPlayer.Sign, i_ChosenColumn);
+            return m_Board.InsertSignToBoard(i_PlayigPlayer.Sign, i_ChosenColumn);
         }
 
+        public void ResetBoard()
+        {
+            m_Board.InitializeBoard();
+        }
     }
 }

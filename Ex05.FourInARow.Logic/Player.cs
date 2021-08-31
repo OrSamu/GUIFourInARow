@@ -20,7 +20,7 @@
             m_IsBot = i_GameMode == (int)ePlayerSettings.PcPlayer;
         }
 
-        internal int Points
+        public int Points
         {
             get { return m_Points; }
             set { m_Points = value; }

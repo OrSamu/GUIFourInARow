@@ -25,7 +25,7 @@ namespace Ex05.FourInARow.UserInterface
             string playerOneName, playerTwoName = "Computer";
 
             m_FormFourInARowGameSettings.ShowDialog();
-            if(m_FormFourInARowGameSettings.DialogResult != DialogResult.Cancel)
+            if(m_FormFourInARowGameSettings.DialogResult == DialogResult.OK)
             {
                 playerOneName = m_FormFourInARowGameSettings.PlayerOneUserName;
                 rows = int.Parse(m_FormFourInARowGameSettings.Rows);
@@ -39,7 +39,7 @@ namespace Ex05.FourInARow.UserInterface
 
                 m_FourInARowGame = new GameManager(rows, cols, numOfPlayers);
 
-                m_GraphicBoard = new FormGameBoard(rows, cols, playerOneName, playerTwoName, m_FourInARowGame);
+                m_GraphicBoard = new FormGameBoard(rows, cols, playerOneName, playerTwoName, ref m_FourInARowGame);
 
                 m_GraphicBoard.ShowDialog();
             }

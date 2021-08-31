@@ -60,6 +60,7 @@ namespace Ex05.FourInARow.UserInterface
 
             if (errorMsg.Equals(""))
             {
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else

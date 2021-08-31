@@ -39,5 +39,8 @@
     <Compile Include="GameManager.cs" />
     <Compile Include="Player.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

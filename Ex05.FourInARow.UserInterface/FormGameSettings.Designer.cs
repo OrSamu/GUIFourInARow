@@ -95,6 +95,7 @@ namespace Ex05.FourInARow.UserInterface
             // 
             // buttonStart
             // 
+            this.buttonStart.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonStart.Location = new System.Drawing.Point(12, 160);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(213, 23);

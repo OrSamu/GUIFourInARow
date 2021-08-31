@@ -1,4 +1,6 @@
-﻿namespace Ex05.FourInARow.Logic
+﻿using System.Drawing;
+
+namespace Ex05.FourInARow.Logic
 {
     public class Board
     {
@@ -70,8 +72,9 @@
             return isBoardFull;
         }
 
-        public void InsertSignToBoard(char i_Sign, int i_Col)
+        public Point InsertSignToBoard(char i_Sign, int i_Col)
         {
+            Point insertedObj = new Point(-1, -1);
             if (!IsColumnFull(i_Col))
             {
                 int rowToInsert = 0;
@@ -91,7 +94,10 @@
                 }
 
                 updateBoard(i_Sign, rowToInsert, i_Col);
+                insertedObj = new Point(i_Col, rowToInsert);
             }
+
+            return insertedObj;
         }
 
         private void updateBoard(char i_Sign, int i_Row, int i_Column)
