@@ -26,17 +26,17 @@
             set { m_Points = value; }
         }
 
-        internal int Number
+        public int Number
         {
             get { return m_PlayerNumber; }
         }
 
-        internal bool IsBot
+        public bool IsBot
         {
             get { return m_IsBot; }
         }
 
-        internal char Sign
+        public char Sign
         {
             get { return m_Sign; }
         }

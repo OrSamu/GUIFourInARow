@@ -22,24 +22,28 @@ namespace Ex05.FourInARow.UserInterface
             int numOfPlayers = 1;
             int rows, cols;
             int gameFormWidth, gameFormHeight;
-            string playerOneName, PlayerTwoName = "Computer";
+            string playerOneName, playerTwoName = "Computer";
 
             m_FormFourInARowGameSettings.ShowDialog();
-            playerOneName = m_FormFourInARowGameSettings.PlayerOneUserName;
-            rows = int.Parse(m_FormFourInARowGameSettings.Rows);
-            cols = int.Parse(m_FormFourInARowGameSettings.Columns);
-
-            if (m_FormFourInARowGameSettings.VsAnotherPlayer)
+            if(m_FormFourInARowGameSettings.DialogResult != DialogResult.Cancel)
             {
-                numOfPlayers = 2;
-                playerOneName = m_FormFourInARowGameSettings.PlayerTwoUserName;
+                playerOneName = m_FormFourInARowGameSettings.PlayerOneUserName;
+                rows = int.Parse(m_FormFourInARowGameSettings.Rows);
+                cols = int.Parse(m_FormFourInARowGameSettings.Columns);
+
+                if(m_FormFourInARowGameSettings.VsAnotherPlayer)
+                {
+                    numOfPlayers = 2;
+                    playerOneName = m_FormFourInARowGameSettings.PlayerTwoUserName;
+                }
+
+                m_FourInARowGame = new GameManager(rows, cols, numOfPlayers);
+
+                m_GraphicBoard = new FormGameBoard(rows, cols, playerOneName, playerTwoName, m_FourInARowGame);
+
+                m_GraphicBoard.ShowDialog();
             }
 
-            m_FourInARowGame = new GameManager(rows, cols, numOfPlayers);
-
-            m_GraphicBoard = new FormGameBoard(rows, cols);
-            
-            m_GraphicBoard.ShowDialog();
 
             //create form using gameformheight and width
 

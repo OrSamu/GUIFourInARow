@@ -1,6 +1,6 @@
 ﻿namespace Ex05.FourInARow.Logic
 {
-    internal class Board
+    public class Board
     {
         private const char k_EmptyColumn = ' ';
         private const int k_FirstCol = 0;
