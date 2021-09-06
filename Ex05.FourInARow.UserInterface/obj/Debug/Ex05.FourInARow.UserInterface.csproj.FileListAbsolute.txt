@@ -1,0 +1,12 @@
+C:\Users\dar28\Desktop\Programming\GUIFourInARow\Ex05.FourInARow.UserInterface\bin\Debug\Ex05.FourInARow.UserInterface.exe
+C:\Users\dar28\Desktop\Programming\GUIFourInARow\Ex05.FourInARow.UserInterface\bin\Debug\Ex05.FourInARow.UserInterface.pdb
+C:\Users\dar28\Desktop\Programming\GUIFourInARow\Ex05.FourInARow.UserInterface\bin\Debug\Ex05.FourInARow.Logic.dll
+C:\Users\dar28\Desktop\Programming\GUIFourInARow\Ex05.FourInARow.UserInterface\bin\Debug\Ex05.FourInARow.Logic.pdb
+C:\Users\dar28\Desktop\Programming\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.csprojAssemblyReference.cache
+C:\Users\dar28\Desktop\Programming\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.FormGameSettings.resources
+C:\Users\dar28\Desktop\Programming\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.FormInputError.resources
+C:\Users\dar28\Desktop\Programming\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.csproj.GenerateResource.cache
+C:\Users\dar28\Desktop\Programming\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.csproj.CoreCompileInputs.cache
+C:\Users\dar28\Desktop\Programming\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.csproj.CopyComplete
+C:\Users\dar28\Desktop\Programming\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.exe
+C:\Users\dar28\Desktop\Programming\GUIFourInARow\Ex05.FourInARow.UserInterface\obj\Debug\Ex05.FourInARow.UserInterface.pdb

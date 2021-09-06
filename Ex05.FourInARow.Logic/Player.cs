@@ -22,23 +22,14 @@
 
         public int Points
         {
-            get { return m_Points; }
-            set { m_Points = value; }
+            get => m_Points;
+            set => m_Points = value;
         }
 
-        public int Number
-        {
-            get { return m_PlayerNumber; }
-        }
+        public int Number => m_PlayerNumber;
 
-        public bool IsBot
-        {
-            get { return m_IsBot; }
-        }
+        public bool IsBot => m_IsBot;
 
-        public char Sign
-        {
-            get { return m_Sign; }
-        }
+        public char Sign => m_Sign;
     }
 }

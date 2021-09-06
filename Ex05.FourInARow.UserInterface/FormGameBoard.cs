@@ -108,90 +108,68 @@ namespace Ex05.FourInARow.UserInterface
             }
         }
 
-        /*private void resetFormBoard(int i_Rows, int i_Columns)
+        private void disableColIfNeeded(Point moveMade, Player currentPlayer, int columnChoose, Button senderButton)
         {
-            for (int i = 0; i < i_Columns; i++)
-            {
-                for (int j = 0; j < i_Rows; j++)
-                {
-                    m_ButtonsBoardChars[j, i].Text = "";
-                }
-            }
-        }*/
-
-        private void columnButtons_Click(object sender, EventArgs e)
-        {
-            Button sendderButton = sender as Button;
-            int columnChoose = int.Parse(sendderButton.Text);
-            bool playerWonTheGame = false;
-            bool wantRematch = false;
-            bool gameHasEnded = false;
-            Player currentPlayer = m_FourInARowGameManager.CurrentPlayer;
-            Label currentPlayerPoints = currentPlayer.Number == 1 ? m_LabelPlayerOnePoints : m_LabelPlayerTwoPoints;
-            string currentPlayerName = currentPlayer.Number == 1 ? m_LabelPlayerOneName.Text : m_LabelPlayerTwoName.Text;
-            Point moveMade;
-
-            moveMade = m_FourInARowGameManager.AddShapeToBoard(currentPlayer, columnChoose-k_UiBoardDiff);
             m_ButtonsBoardChars[moveMade.Y, moveMade.X].Text = currentPlayer.Sign.ToString();
-            if(m_FourInARowGameManager.GameBoard.IsColumnFull(columnChoose - k_UiBoardDiff))
+            if (m_FourInARowGameManager.GameBoard.IsColumnFull(columnChoose - k_UiBoardDiff))
             {
-                sendderButton.Enabled = false;
+                senderButton.Enabled = false;
             }
-
-            playerWonTheGame = m_FourInARowGameManager.GameBoard.DidPlayerMakeFourInARow(
-                currentPlayer,
-                columnChoose - k_UiBoardDiff);
-            if (playerWonTheGame)
-            {
-                string isTheWinner = string.Format(
-                    @"{0} Won!
-Another Round?",
-                    currentPlayerName);
-                m_FourInARowGameManager.AddPoint(currentPlayer.Number);
-                currentPlayerPoints.Text = currentPlayer.Points.ToString();
-                wantRematch = showResultAndAskForAnotherRound(isTheWinner, "A Win!");
-                gameHasEnded = true;
-            }
-            else if(m_FourInARowGameManager.GameBoard.IsBoardFull())
-            {
-                string isTheWinner = string.Format(
-                    @"It's a Tie!
-Another Round?",
-                    currentPlayerName);
-                m_FourInARowGameManager.AddPoint(1);
-                m_FourInARowGameManager.AddPoint(2);
-                m_LabelPlayerOnePoints.Text = m_FourInARowGameManager.Player1.Points.ToString();
-                m_LabelPlayerTwoPoints.Text = m_FourInARowGameManager.Player2.Points.ToString();
-                wantRematch = showResultAndAskForAnotherRound(isTheWinner, "A Tie!");
-                gameHasEnded = true;
-            }
-
-            if(gameHasEnded)
-            {
-                if(wantRematch)
-                {
-                    m_FourInARowGameManager.ResetBoard();
-                    for(int i = 0; i < m_FourInARowGameManager.GameBoard.Cols; i++)
-                    {
-                        m_ButtonsColumns[i].Enabled = true;
-                        for(int j = 0; j < m_FourInARowGameManager.GameBoard.Rows; j++)
-                        {
-                            m_ButtonsBoardChars[j, i].Text = "";
-                        }
-                    }
-
-
-                }
-                else
-                {
-                    this.Close();
-                }
-            }
-            
-
-            m_FourInARowGameManager.SwitchCurrentPlayer();
         }
 
+        private Button getButtonByID(string i_buttonText)
+        {
+            Button desiredButton=null;
+            foreach(var button in this.Controls.OfType<Button>())
+            {
+                if(button.Text.Equals(i_buttonText))
+                {
+                    desiredButton = button;
+                    break;
+                }
+            }
+            return desiredButton;
+        }
+        private void columnButtons_Click(object sender, EventArgs e)
+        {
+            Player currentPlayer = m_FourInARowGameManager.CurrentPlayer;
+            if (!currentPlayer.IsBot)
+            {
+                Button senderButton;
+                int columnChoose;
+                senderButton = sender as Button;
+                columnChoose = int.Parse(senderButton.Text);
+                manageTurn(currentPlayer, columnChoose, senderButton);
+                m_FourInARowGameManager.SwitchCurrentPlayer();
+                currentPlayer = m_FourInARowGameManager.CurrentPlayer;
+                if (currentPlayer.IsBot)
+                {
+                    playBotTurn();
+                }
+            }
+        }
+
+        private void playBotTurn()
+        {
+            Player currentPlayer = m_FourInARowGameManager.CurrentPlayer;
+            Random randomNum = new Random();
+            int columnChoose;
+            Button senderButton;
+            do
+            {
+                columnChoose = randomNum.Next(1, m_FourInARowGameManager.GameBoard.Cols + 1);
+                senderButton = getButtonByID(columnChoose.ToString());
+            }
+            while(!senderButton.Enabled);
+            manageTurn(currentPlayer, columnChoose, senderButton);
+            m_FourInARowGameManager.SwitchCurrentPlayer();
+        }
+        private void manageTurn(Player currentPlayer,int columnChoose, Button senderButton)
+        {
+            Point moveMade = m_FourInARowGameManager.AddShapeToBoard(currentPlayer, columnChoose - k_UiBoardDiff);
+            disableColIfNeeded(moveMade, currentPlayer, columnChoose, senderButton);
+            manageWinning(currentPlayer, columnChoose);
+        }
         private bool showResultAndAskForAnotherRound(string i_MsgToShow,string i_WindowTitle)
         {
             string message = i_MsgToShow;
@@ -205,6 +183,64 @@ Another Round?",
             }
 
             return anotherRound;
+        }
+
+        private void manageWinning(Player currentPlayer, int columnChoose)
+        {
+            bool playerWonTheGame = false;
+            bool wantRematch = false;
+            bool gameHasEnded = false;
+            Label currentPlayerPoints = currentPlayer.Number == 1 ? m_LabelPlayerOnePoints : m_LabelPlayerTwoPoints;
+            string currentPlayerName = currentPlayer.Number == 1 ? m_LabelPlayerOneName.Text : m_LabelPlayerTwoName.Text;
+
+
+            playerWonTheGame = m_FourInARowGameManager.GameBoard.DidPlayerMakeFourInARow(
+    currentPlayer,
+    columnChoose - k_UiBoardDiff);
+            if (playerWonTheGame)
+            {
+                string isTheWinner = string.Format(
+                    @"{0} Won!
+Another Round?",
+                    currentPlayerName);
+                m_FourInARowGameManager.AddPoint(currentPlayer.Number);
+                currentPlayerPoints.Text = currentPlayer.Points.ToString();
+                wantRematch = showResultAndAskForAnotherRound(isTheWinner, "A Win!");
+                gameHasEnded = true;
+            }
+            else if (m_FourInARowGameManager.GameBoard.IsBoardFull())
+            {
+                string isTheWinner = string.Format(
+                    @"It's a Tie!
+Another Round?",
+                    currentPlayerName);
+                m_FourInARowGameManager.AddPoint(1);
+                m_FourInARowGameManager.AddPoint(2);
+                m_LabelPlayerOnePoints.Text = m_FourInARowGameManager.Player1.Points.ToString();
+                m_LabelPlayerTwoPoints.Text = m_FourInARowGameManager.Player2.Points.ToString();
+                wantRematch = showResultAndAskForAnotherRound(isTheWinner, "A Tie!");
+                gameHasEnded = true;
+            }
+
+            if (gameHasEnded)
+            {
+                if (wantRematch)
+                {
+                    m_FourInARowGameManager.ResetBoard();
+                    for (int i = 0; i < m_FourInARowGameManager.GameBoard.Cols; i++)
+                    {
+                        m_ButtonsColumns[i].Enabled = true;
+                        for (int j = 0; j < m_FourInARowGameManager.GameBoard.Rows; j++)
+                        {
+                            m_ButtonsBoardChars[j, i].Text = "";
+                        }
+                    }
+                }
+                else
+                {
+                    this.Close();
+                }
+            }
         }
 
     }

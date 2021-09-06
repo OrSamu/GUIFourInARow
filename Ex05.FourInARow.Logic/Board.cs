@@ -21,20 +21,11 @@ namespace Ex05.FourInARow.Logic
             InitializeBoard();
         }
 
-        public char[,] GameBoard
-        {
-            get { return r_Board; }
-        }
+        public char[,] GameBoard => r_Board;
 
-        public int Rows
-        {
-            get { return r_Rows; }
-        }
+        public int Rows => r_Rows;
 
-        public int Cols
-        {
-            get { return r_Columns; }
-        }
+        public int Cols => r_Columns;
 
         internal void InitializeBoard()
         {
@@ -109,7 +100,7 @@ namespace Ex05.FourInARow.Logic
         {
             bool isFourInArow = false;
             bool verticalLine = isVerticalLine(i_Sign, i_CurrentRow, i_CurrentCol);
-            bool balancedLine = isBalancedlLine(i_Sign, i_CurrentRow, i_CurrentCol);
+            bool balancedLine = isBalancedLine(i_Sign, i_CurrentRow, i_CurrentCol);
             bool diagonalLine = isDiagonalLine(i_Sign, i_CurrentRow, i_CurrentCol);
             bool inverterDiagonalLine = isInvertedDiagonalLine(i_Sign, i_CurrentRow, i_CurrentCol);
 
@@ -147,7 +138,7 @@ namespace Ex05.FourInARow.Logic
             return topRow;
         }
 
-        private bool isBalancedlLine(char i_Sign, int i_CurrentRow, int i_CurrentCol)
+        private bool isBalancedLine(char i_Sign, int i_CurrentRow, int i_CurrentCol)
         {
             bool isFourInArow = false;
             int leftCount = getLeftCount(i_Sign, i_CurrentRow, i_CurrentCol - 1);
@@ -245,8 +236,8 @@ namespace Ex05.FourInARow.Logic
         {
             bool diagonalLine = false;
             int leftDownCount = getLeftDownCount(i_Sign, i_CurrentRow + 1, i_CurrentCol - 1);
-            int UpRightCount = getUpRightCount(i_Sign, i_CurrentRow - 1, i_CurrentCol + 1);
-            if (1 + leftDownCount + UpRightCount >= k_InARow)
+            int upRightCount = getupRightCount(i_Sign, i_CurrentRow - 1, i_CurrentCol + 1);
+            if (1 + leftDownCount + upRightCount >= k_InARow)
             {
                 diagonalLine = true;
             }
@@ -279,7 +270,7 @@ namespace Ex05.FourInARow.Logic
             return signCount;
         }
 
-        private int getUpRightCount(char i_Sign, int i_CurrentRow, int i_CurrentCol)
+        private int getupRightCount(char i_Sign, int i_CurrentRow, int i_CurrentCol)
         {
             int signCount = 0;
             for (int i = 0; i < k_InARow - 1; i++)
@@ -358,8 +349,8 @@ namespace Ex05.FourInARow.Logic
         {
             bool invertedDiagonalLine = false;
             int rightDownCount = getRightDownCount(i_Sign, i_CurrentRow + 1, i_CurrentCol + 1);
-            int UpRightCount = getLeftUpCount(i_Sign, i_CurrentRow - 1, i_CurrentCol - 1);
-            if (1 + rightDownCount + UpRightCount >= k_InARow)
+            int upRightCount = getLeftUpCount(i_Sign, i_CurrentRow - 1, i_CurrentCol - 1);
+            if (1 + rightDownCount + upRightCount >= k_InARow)
             {
                 invertedDiagonalLine = true;
             }

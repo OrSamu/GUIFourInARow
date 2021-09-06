@@ -6,7 +6,7 @@ namespace Ex05.FourInARow.UserInterface
 {
     public class UIManager
     {
-        private FormGameSettings m_FormFourInARowGameSettings = new FormGameSettings();
+        private readonly FormGameSettings r_FormFourInARowGameSettings = new FormGameSettings();
 
         private GameManager m_FourInARowGame;
 
@@ -21,20 +21,19 @@ namespace Ex05.FourInARow.UserInterface
         {
             int numOfPlayers = 1;
             int rows, cols;
-            int gameFormWidth, gameFormHeight;
             string playerOneName, playerTwoName = "Computer";
 
-            m_FormFourInARowGameSettings.ShowDialog();
-            if(m_FormFourInARowGameSettings.DialogResult == DialogResult.OK)
+            r_FormFourInARowGameSettings.ShowDialog();
+            if(r_FormFourInARowGameSettings.DialogResult == DialogResult.OK)
             {
-                playerOneName = m_FormFourInARowGameSettings.PlayerOneUserName;
-                rows = int.Parse(m_FormFourInARowGameSettings.Rows);
-                cols = int.Parse(m_FormFourInARowGameSettings.Columns);
+                playerOneName = r_FormFourInARowGameSettings.PlayerOneUserName;
+                rows = int.Parse(r_FormFourInARowGameSettings.Rows);
+                cols = int.Parse(r_FormFourInARowGameSettings.Columns);
 
-                if(m_FormFourInARowGameSettings.VsAnotherPlayer)
+                if(r_FormFourInARowGameSettings.VsAnotherPlayer)
                 {
                     numOfPlayers = 2;
-                    playerOneName = m_FormFourInARowGameSettings.PlayerTwoUserName;
+                    playerOneName = r_FormFourInARowGameSettings.PlayerTwoUserName;
                 }
 
                 m_FourInARowGame = new GameManager(rows, cols, numOfPlayers);
@@ -43,12 +42,6 @@ namespace Ex05.FourInARow.UserInterface
 
                 m_GraphicBoard.ShowDialog();
             }
-
-
-            //create form using gameformheight and width
-
-            //play game
-            //byebye
         }
     }
 }

@@ -17,33 +17,18 @@ namespace Ex05.FourInARow.Logic
         private const int k_PlayerOne = 1;
         private const int k_PlayerTwo = 2;
 
-        private readonly Board m_Board;
+        private readonly Board r_Board;
         private readonly Player m_Player1;
         private readonly Player m_Player2;
         private int m_CurrentPlayer = 1;
 
-        public Board GameBoard
-        {
-            get { return m_Board; }
-        }
+        public Board GameBoard => r_Board;
 
-        public Player Player1
-        {
-            get { return m_Player1; }
-        }
+        public Player Player1 => m_Player1;
 
-        public Player Player2
-        {
-            get { return m_Player2; }
-        }
+        public Player Player2 => m_Player2;
 
-        public Player CurrentPlayer
-        {
-            get
-            {
-                return m_CurrentPlayer == k_PlayerOne ? m_Player1 : m_Player2;
-            }
-        }
+        public Player CurrentPlayer => m_CurrentPlayer == k_PlayerOne ? m_Player1 : m_Player2;
 
         public void SwitchCurrentPlayer()
         {
@@ -53,7 +38,7 @@ namespace Ex05.FourInARow.Logic
         public GameManager(int i_RowsForBoard, int i_ColumnsForBoard, int i_GameMode)
         {
             bool gameVsBot = i_GameMode == (int)eGameRules.PlayerVsPc;
-            m_Board = new Board(i_RowsForBoard, i_ColumnsForBoard);
+            r_Board = new Board(i_RowsForBoard, i_ColumnsForBoard);
             m_Player1 = new Player(k_FirstPlayerSign, k_PlayerOne, (int)eGameRules.PlayerVsPlayer);
             m_Player2 = new Player(k_SecondPlayerSign, k_PlayerTwo, i_GameMode);
         }
@@ -88,12 +73,12 @@ namespace Ex05.FourInARow.Logic
 
         public Point AddShapeToBoard(Player i_PlayigPlayer, int i_ChosenColumn)
         {
-            return m_Board.InsertSignToBoard(i_PlayigPlayer.Sign, i_ChosenColumn);
+            return r_Board.InsertSignToBoard(i_PlayigPlayer.Sign, i_ChosenColumn);
         }
 
         public void ResetBoard()
         {
-            m_Board.InitializeBoard();
+            r_Board.InitializeBoard();
         }
     }
 }
