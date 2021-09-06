@@ -17,6 +17,7 @@ namespace Ex05.FourInARow.UserInterface
             Application.EnableVisualStyles();
         }
 
+
         public void StartGame()
         {
             int numOfPlayers = 1;
@@ -26,14 +27,14 @@ namespace Ex05.FourInARow.UserInterface
             r_FormFourInARowGameSettings.ShowDialog();
             if(r_FormFourInARowGameSettings.DialogResult == DialogResult.OK)
             {
-                playerOneName = r_FormFourInARowGameSettings.PlayerOneUserName;
                 rows = int.Parse(r_FormFourInARowGameSettings.Rows);
                 cols = int.Parse(r_FormFourInARowGameSettings.Columns);
 
-                if(r_FormFourInARowGameSettings.VsAnotherPlayer)
+                playerOneName = r_FormFourInARowGameSettings.PlayerOneUserName;
+                if (r_FormFourInARowGameSettings.VsAnotherPlayer)
                 {
                     numOfPlayers = 2;
-                    playerOneName = r_FormFourInARowGameSettings.PlayerTwoUserName;
+                    playerTwoName = r_FormFourInARowGameSettings.PlayerTwoUserName;
                 }
 
                 m_FourInARowGame = new GameManager(rows, cols, numOfPlayers);
